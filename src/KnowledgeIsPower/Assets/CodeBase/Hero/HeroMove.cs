@@ -30,7 +30,6 @@ namespace CodeBase.Hero
 
             if (_inputService.Axis.sqrMagnitude > Constants.Epsilon)
             {
-                //Трансформируем экранныые координаты вектора в мировые
                 movementVector = _camera.transform.TransformDirection(_inputService.Axis);
                 movementVector.y = 0;
                 movementVector.Normalize();
@@ -39,10 +38,11 @@ namespace CodeBase.Hero
             }
 
             movementVector += Physics.gravity;
-            
+
             CharacterController.Move(MovementSpeed * movementVector * Time.deltaTime);
         }
 
-        private void CameraFollow() => _camera.GetComponent<CameraFollow>().Follow(gameObject);
+        private void CameraFollow() => 
+            _camera.GetComponent<CameraFollow>().Follow(gameObject);
     }
 }

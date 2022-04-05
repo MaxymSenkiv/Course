@@ -17,9 +17,7 @@ namespace CodeBase.Infrastructure
             if (Application.isEditor)
                 InputService = new StandaloneInputService();
             else
-            {
                 InputService = new MobileInputService();
-            }
         }
     }
 }
